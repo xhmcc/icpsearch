@@ -22,16 +22,17 @@ options:
 
 ![image](https://github.com/user-attachments/assets/64e6f062-ef59-4b5d-bcce-a71c47eb1688)
 
-2、在同文件下表格（company_name.xlsx）内填入企业名称，脚本会根据表格内企业名称依次查询备案
+2、在同文件夹下表格（company_name.xlsx）内、或自行指定表格填入企业名称，脚本会根据表格内企业名称依次查询备案
 
 ![image](https://github.com/user-attachments/assets/5b8111a3-d5a1-4ad2-b89d-f591be715007)
 
 3、最后直接打开终端运行即可
 
-python icpsearch.py
+python icpsearch.py -f input.xlsx -o output.xlsx
 
-![image](https://github.com/user-attachments/assets/d63e5b06-9eeb-49d3-8861-d1fa40545be9)
-4、运行结束后会自动生成一个表格（company_domains_result.xlsx）
+![image](https://github.com/user-attachments/assets/a82b1139-71fd-4b9a-a763-24f6a4356d6b)
+
+4、运行结束后会自动生成一个表格（company_domains_result.xlsx），或-o自行指定输出文件
 
 可在此表格中看到企业备案域名及IP
 ![image](https://github.com/user-attachments/assets/29fae474-0e8e-4135-987e-23509ad3b4f6)
