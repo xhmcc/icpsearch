@@ -4,6 +4,7 @@
 
 ## 使用命令： ##
 python icpsearch.py
+
 python icpsearch.py -proxy http://127.0.0.1:8080
 
 ## 使用步骤： ##
@@ -16,6 +17,7 @@ python icpsearch.py -proxy http://127.0.0.1:8080
 ![image](https://github.com/user-attachments/assets/5b8111a3-d5a1-4ad2-b89d-f591be715007)
 
 3、最后直接打开终端运行即可
+
 python icpsearch.py
 
 ![image](https://github.com/user-attachments/assets/d63e5b06-9eeb-49d3-8861-d1fa40545be9)
