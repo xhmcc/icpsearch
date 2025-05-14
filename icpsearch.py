@@ -188,7 +188,6 @@ def get_company_id_aiqicha(company_name, is_first_query=False):
                                     # 如果企业名称完全匹配，返回对应的pid
                                     if clean_name == company_name:
                                         company_id = item['pid']
-                                        print(f"找到匹配的企业ID: {company_id}")
                                         return company_id
                     
                     print(f"未找到匹配的企业ID: {company_name}")
@@ -302,7 +301,7 @@ def get_icp_domains_aiqicha(company_id):
                                             ips.add(site)
                     
                     print(f"找到域名: {', '.join(domains)}")  # 打印找到的域名
-                    print(f"找到IP: {', '.join(ips) if ips else '无'}")  # 打印找到的IP，如果没有则显示"无"
+                    print(f"找到IP: {', '.join(ips) if ips else '无备案IP'}") 
                     return {
                         'domains': list(domains),
                         'ips': list(ips)
@@ -348,8 +347,42 @@ def get_icp_domains_aiqicha(company_id):
 
 def main():
     try:
+        # 显示logo和版本信息
+        print(r"""
+  ___          ____                      _     
+ |_ _|___ _ __/ ___|  ___  __ _ _ __ ___| |__  
+  | |/ __| '_ \___ \ / _ \/ _` | '__/ __| '_ \ 
+  | | (__| |_) |__) |  __/ (_| | | | (__| | | |
+ |___\___| .__/____/ \___|\__,_|_|  \___|_| |_|
+         |_|                                   
+    @https://github.com/xhmcc/icpsearch   By:心海
+""")
+        
         # 解析命令行参数
-        parser = argparse.ArgumentParser(description='企业备案信息查询工具')
+        parser = argparse.ArgumentParser(
+            description='企业备案信息查询工具',
+            formatter_class=argparse.RawDescriptionHelpFormatter,
+            epilog='''
+示例:
+  python icpsearch.py -f input.xlsx -o output.xlsx
+  python icpsearch.py -f input.xlsx -o output.xlsx -proxy http://127.0.0.1:8080
+  python icpsearch.py -h  # 显示帮助信息
+'''
+        )
+        
+        # 解析命令行参数
+        parser = argparse.ArgumentParser(
+            description='企业备案信息查询工具',
+            formatter_class=argparse.RawDescriptionHelpFormatter,
+            epilog='''
+示例:
+  python icpsearch.py -f input.xlsx -o output.xlsx
+  python icpsearch.py -f input.xlsx -o output.xlsx -proxy http://127.0.0.1:8080
+  python icpsearch.py -h  # 显示帮助信息
+'''
+        )
+        parser.add_argument('-f', '--file', default='company_name.xlsx', help='指定输入Excel文件路径，默认为company_name.xlsx')
+        parser.add_argument('-o', '--output', default='company_domains_result.xlsx', help='指定输出Excel文件路径，默认为company_domains_result.xlsx')
         parser.add_argument('-proxy', help='设置代理服务器，例如: http://127.0.0.1:8080')
         args = parser.parse_args()
 
@@ -362,8 +395,13 @@ def main():
             }
             print(f"使用代理: {args.proxy}")
 
+        # 检查输入文件是否存在
+        if not os.path.exists(args.file):
+            print(f"错误：输入文件 {args.file} 不存在")
+            return
+
         # 读取Excel文件
-        df = pd.read_excel('company_name.xlsx')
+        df = pd.read_excel(args.file)
         
         # 确保企业名称列存在
         if '企业名称' not in df.columns:
@@ -395,8 +433,8 @@ def main():
                 ips = data['ips']
                 
                 # 格式化输出，使用换行符分隔
-                domains_str = '\n'.join(domains) if domains else '无'
-                ips_str = '\n'.join(ips) if ips else '无'
+                domains_str = '\n'.join(domains) if domains else '无备案域名'
+                ips_str = '\n'.join(ips) if ips else '无备案IP'
             else:
                 domains_str = '未找到企业信息'
                 ips_str = '未找到企业信息'
@@ -408,12 +446,11 @@ def main():
             })
             
             # 每处理完一个企业就保存一次结果，但只在最后一个企业时显示提示
-            save_results(results, 'company_domains_result.xlsx', show_message=(index == len(df['企业名称']) - 1))
+            save_results(results, args.output, show_message=(index == len(df['企业名称']) - 1))
             
     except Exception as e:
         print(f"程序执行出错: {str(e)}")
-    finally:
-        print("\n程序执行完成")
+
 
 if __name__ == "__main__":
     main()
