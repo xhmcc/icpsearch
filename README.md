@@ -21,3 +21,6 @@ python icpsearch.py -proxy http://127.0.0.1:8080
 python icpsearch.py
 
 ![image](https://github.com/user-attachments/assets/d63e5b06-9eeb-49d3-8861-d1fa40545be9)
+4、运行结束后会自动生成一个表格（company_domains_result.xlsx）
+
+![image](https://github.com/user-attachments/assets/29fae474-0e8e-4135-987e-23509ad3b4f6)
