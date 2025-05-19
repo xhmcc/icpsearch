@@ -11,13 +11,13 @@ python icpsearch_aqc.py -f input.xlsx -o output.xlsx -d 1  # 设置请求间隔�
 
 options:
 
-  -f FILE, --file FILE        指定输入Excel文件路径，默认为company_name.xlsx
+-  -f FILE, --file FILE        指定输入Excel文件路径，默认为company_name.xlsx
   
-  -o OUTPUT, --output OUTPUT  指定输出Excel文件路径，默认为company_domains_result.xlsx
+-  -o OUTPUT, --output OUTPUT  指定输出Excel文件路径，默认为company_domains_result.xlsx
   
-  -proxy PROXY                设置代理服务器，例如: http://127.0.0.1:8080
+-  -proxy PROXY                设置代理服务器，例如: http://127.0.0.1:8080
   
-  -d DELAY, --delay DELAY     设置请求间隔时间（秒），默认为0秒
+-  -d DELAY, --delay DELAY     设置请求间隔时间（秒），默认为0秒
   
 ## 使用命令（icpsearch_icp.py）： ##
 python icpsearch_icp.py -f input.xlsx -o output.xlsx
