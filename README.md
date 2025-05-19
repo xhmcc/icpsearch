@@ -1,5 +1,5 @@
 # icpsearch
-批量根据企业名称查询企业备案域名、IP、微信小程序、微信公众号、app，目前支持爱企查（aqc）、icp
+批量根据企业名称查询企业备案域名、IP、微信小程序、微信公众号、app，目前支持爱企查aqc、icp
 
 
 ## 使用命令（icpsearch_aqc.py）： ##
@@ -28,13 +28,16 @@ python icpsearch.py -f input.xlsx -o output.xlsx -d 1  # 设置请求间隔为1�
 
 options:
 
-  -f FILE, --file FILE        指定输入Excel文件路径，默认为company_name.xlsx
+  -f FILE, --file FILE  指定输入Excel文件路径，默认为company_name.xlsx
   
-  -o OUTPUT, --output OUTPUT  指定输出Excel文件路径，默认为company_domains_result.xlsx
-  
-  -proxy PROXY                设置代理服务器，例如: http://127.0.0.1:8080
-  
-  -d DELAY, --delay DELAY     设置请求间隔时间（秒），默认为0秒
+  -o OUTPUT, --output OUTPUT
+                        指定输出Excel文件路径，默认为company_domains_result.xlsx
+                        
+  -d DELAY, --delay DELAY
+                        设置请求间隔时间（秒），默认为0秒
+                        
+  -proxy PROXY, --proxy PROXY
+                        设置代理服务器或代理池文件路径
 ## 使用步骤： ##
 1、在config.yaml文件中填写爱企查cookie
 
