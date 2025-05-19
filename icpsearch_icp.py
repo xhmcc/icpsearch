@@ -955,11 +955,11 @@ def main():
             formatter_class=argparse.RawDescriptionHelpFormatter,
             epilog='''
 示例:
-  python icpsearch.py -f input.xlsx -o output.xlsx
-  python icpsearch.py -f input.xlsx -o output.xlsx -d 1  # 设置请求间隔为1秒
-  python icpsearch.py -f input.xlsx -o output.xlsx -proxy http://127.0.0.1:8008  # 使用代理
-  python icpsearch.py -f input.xlsx -o output.xlsx -proxy proxypool.txt  # 使用代理池
-  python icpsearch.py -h  # 显示帮助信息
+  python icpsearch_icp.py -f input.xlsx -o output.xlsx
+  python icpsearch_icp.py -f input.xlsx -o output.xlsx -d 1  # 设置请求间隔为1秒
+  python icpsearch_icp.py -f input.xlsx -o output.xlsx -proxy http://127.0.0.1:8008  # 使用代理
+  python icpsearch_icp.py -f input.xlsx -o output.xlsx -proxy proxypool.txt  # 使用代理池
+  python icpsearch_icp.py -h  # 显示帮助信息
 '''
         )
         parser.add_argument('-f', '--file', default='company_name.xlsx', help='指定输入Excel文件路径，默认为company_name.xlsx')
