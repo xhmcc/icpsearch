@@ -1,7 +1,7 @@
 # icpsearch
 批量根据企业名称查询企业备案域名、IP、微信小程序、微信公众号、app，目前支持爱企查aqc、icp
 
-icp备案查询可使用代理池查询
+icp备案查询可使用代理池查询（须走http代理）
 ## 使用命令（icpsearch_aqc.py）： ##
 python icpsearch_aqc.py -f input.xlsx -o output.xlsx
 
