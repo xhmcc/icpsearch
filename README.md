@@ -1,7 +1,7 @@
 # icpsearch
 批量根据企业名称查询企业备案域名、IP、微信小程序、微信公众号、app，目前支持爱企查aqc、icp
 
-
+icp备案查询可使用代理池查询
 ## 使用命令（icpsearch_aqc.py）： ##
 python icpsearch_aqc.py -f input.xlsx -o output.xlsx
 
@@ -20,11 +20,13 @@ options:
   -d DELAY, --delay DELAY     设置请求间隔时间（秒），默认为0秒
   
 ## 使用命令（icpsearch_icp.py）： ##
-python icpsearch.py -f input.xlsx -o output.xlsx
+python icpsearch_icp.py -f input.xlsx -o output.xlsx
 
-python icpsearch.py -f input.xlsx -o output.xlsx -proxy http://127.0.0.1:8080
+python icpsearch_icp.py -f input.xlsx -o output.xlsx -d 1  # 设置请求间隔为1秒
 
-python icpsearch.py -f input.xlsx -o output.xlsx -d 1  # 设置请求间隔为1秒
+python icpsearch_icp.py -f input.xlsx -o output.xlsx -proxy http://127.0.0.1:8008  # 使用代理
+
+python icpsearch_icp.py -f input.xlsx -o output.xlsx -proxy proxypool.txt  # 使用代理池
 
 options:
 
@@ -38,7 +40,7 @@ options:
                         
   -proxy PROXY, --proxy PROXY
                         设置代理服务器或代理池文件路径
-## 使用步骤： ##
+## 使用步骤（aqc和icp使用步骤相同）： ##
 1、在config.yaml文件中填写爱企查cookie
 
 ![image](https://github.com/user-attachments/assets/64e6f062-ef59-4b5d-bcce-a71c47eb1688)
@@ -56,4 +58,5 @@ python icpsearch.py -f input.xlsx -o output.xlsx
 4、运行结束后会自动生成一个表格（company_domains_result.xlsx），或-o自行指定输出文件
 
 可在此表格中看到企业备案域名及IP
-![image](https://github.com/user-attachments/assets/29fae474-0e8e-4135-987e-23509ad3b4f6)
+![image](https://github.com/user-attachments/assets/0fe1678c-8765-4740-9e81-ec06027ed1af)
+
