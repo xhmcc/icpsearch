@@ -13,6 +13,7 @@
 之后点击自动调整行列，即可方便查看
 ![image](https://github.com/user-attachments/assets/a93f476c-cdd9-4e0a-8a17-982157ce9618)
 当查询数量较多时，可启用查询功能，定位企业位置
+
 可新建标签页，进行多个查询（上一个查询也会保留）
 ![image](https://github.com/user-attachments/assets/d6c64239-3e4e-41c4-885d-86bcb13a66ac)
 双击可重命名标签
