@@ -4,7 +4,7 @@
 
 ## 使用方法： ##
 命令行运行
-python icpsearch_icp_ui.py
+python icpsearch_icp_ui.py，打开程序
 
 （1）直接输入企业名称
 
