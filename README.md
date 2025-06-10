@@ -4,7 +4,6 @@
 
 ## 使用方法： ##
 
-![image](https://github.com/user-attachments/assets/12b4d9a0-8697-4201-9fdd-053aee61e721)
 （1）直接输入企业名称
 
 （2）导入企业名称txt，导入的文件内容会直接输出到输入框中
