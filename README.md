@@ -6,6 +6,7 @@
 
 ![image](https://github.com/user-attachments/assets/12b4d9a0-8697-4201-9fdd-053aee61e721)
 （1）直接输入企业名称
+
 （2）导入企业名称txt，导入的文件内容会直接输出到输入框中
 点击开始查询，即可查询（查询企业数量多，建议走代理，因为会封禁）
 ![image](https://github.com/user-attachments/assets/6176d9ff-9f96-4c6b-be59-56c4c71487ca)
