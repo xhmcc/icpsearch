@@ -19,6 +19,8 @@ python icpsearch_icp_ui.py，打开程序
 ![image](https://github.com/user-attachments/assets/d6c64239-3e4e-41c4-885d-86bcb13a66ac)
 
 最后，当前标签页的查询结果可导出为xlsx
+
+可右键进行复制，生成fofa和hunter语法
 ![image](https://github.com/user-attachments/assets/62556e67-51ec-4625-94a5-f2c19a577550)
 ![image](https://github.com/user-attachments/assets/abef3beb-851d-487e-beb8-d6e3f1098d0e)
 
