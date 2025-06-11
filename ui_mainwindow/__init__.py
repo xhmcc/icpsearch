@@ -311,6 +311,8 @@ class MainWindow(QMainWindow):
         menu = QMenu()
         del_action = menu.addAction("删除此企业行")
         copy_action = menu.addAction("复制此单元格")
+        fofa_action = menu.addAction("生成FOFA语法")
+        hunter_action = menu.addAction("生成Hunter语法")
         action = menu.exec_(table.viewport().mapToGlobal(pos))
         if action == del_action:
             row = table.currentRow()
@@ -323,6 +325,69 @@ class MainWindow(QMainWindow):
                 item = table.item(row, col)
                 if item:
                     QApplication.clipboard().setText(item.text())
+        elif action == fofa_action:
+            row = table.currentRow()
+            if row < 0:
+                QMessageBox.warning(self, "提示", "请先选中一行")
+                return
+            domain_item = table.item(row, 1)
+            ip_item = table.item(row, 2)
+            domains = set()
+            ips = set()
+            if domain_item:
+                for d in domain_item.text().split("\n"):
+                    d = d.strip()
+                    if d:
+                        domains.add(d)
+            if ip_item:
+                for ip in ip_item.text().split("\n"):
+                    ip = ip.strip()
+                    if ip:
+                        ips.add(ip)
+            fofa_parts = []
+            for d in domains:
+                fofa_parts.append(f'domain="{d}"')
+            for ip in ips:
+                fofa_parts.append(f'ip="{ip}"')
+            fofa_str = " || ".join(fofa_parts)
+            QApplication.clipboard().setText(fofa_str)
+            QMessageBox.information(self, "FOFA语法", "FOFA语法已复制到剪贴板！\n\n" + fofa_str)
+        elif action == hunter_action:
+            row = table.currentRow()
+            if row < 0:
+                QMessageBox.warning(self, "提示", "请先选中一行")
+                return
+            name_item = table.item(row, 0)
+            domain_item = table.item(row, 1)
+            ip_item = table.item(row, 2)
+            names = set()
+            domains = set()
+            ips = set()
+            if name_item:
+                for n in name_item.text().split("\n"):
+                    n = n.strip()
+                    if n:
+                        names.add(n)
+            if domain_item:
+                for d in domain_item.text().split("\n"):
+                    d = d.strip()
+                    if d:
+                        domains.add(d)
+            if ip_item:
+                for ip in ip_item.text().split("\n"):
+                    ip = ip.strip()
+                    if ip:
+                        ips.add(ip)
+            hunter_parts = []
+            for d in domains:
+                hunter_parts.append(f'domain="{d}"')
+            for ip in ips:
+                hunter_parts.append(f'ip="{ip}"')
+            for n in names:
+                hunter_parts.append(f'icp.name="{n}"')
+            hunter_str = " || ".join(hunter_parts)
+            QApplication.clipboard().setText(hunter_str)
+            QMessageBox.information(self, "Hunter语法", "Hunter语法已复制到剪贴板！\n\n" + hunter_str)
 
     def del_tab(self):
         idx = self.tabs.currentIndex()
