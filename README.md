@@ -17,8 +17,7 @@ python icpsearch_icp_ui.py，打开程序
 
 可新建标签页，进行多个查询（上一个查询也会保留）
 ![image](https://github.com/user-attachments/assets/d6c64239-3e4e-41c4-885d-86bcb13a66ac)
-双击可重命名标签
-![image](https://github.com/user-attachments/assets/e7977a75-3729-4d0a-a9f7-b998d1c39c8c)
+
 最后，当前标签页的查询结果可导出为xlsx
 ![image](https://github.com/user-attachments/assets/62556e67-51ec-4625-94a5-f2c19a577550)
 ![image](https://github.com/user-attachments/assets/abef3beb-851d-487e-beb8-d6e3f1098d0e)
